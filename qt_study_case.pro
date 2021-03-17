@@ -2,4 +2,5 @@ TEMPLATE = subdirs
 
 SUBDIRS += \
     win_run_case \
-    widgets_linkage_case
+    widgets_linkage_case \
+    calc_case
