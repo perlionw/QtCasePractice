@@ -11,6 +11,22 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = win_run_case
 TEMPLATE = app
 
+win32 {
+    CONFIG(debug, debug|release) {
+        vld_path = "E:\install\Visual Leak Detector"
+        !contains(QMAKE_HOST.arch, x86_64) {
+            message("x86_32 build")
+            LIBS += -L$$vld_path/lib/Win32
+        }
+        else {
+            message("x86_64 build")
+            LIBS += -L$$vld_path/lib/Win64
+        }
+
+        INCLUDEPATH += $$vld_path/include
+        LIBS += -lvld
+    }
+}
 
 CONFIG += c++11
 

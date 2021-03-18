@@ -23,6 +23,8 @@ private slots:
     void browserBtnSlot();
     void returnPressedSlot();
 
+    void finishedEvent();
+    void errorEvent();
 private:
     QProcess::ProcessState StartProcess(const QString& process);
 
@@ -36,7 +38,7 @@ private:
 
 private:
     Ui::Widget *ui;
-
+    QProcess* myProcess;
 };
 
 #endif // WIDGET_H

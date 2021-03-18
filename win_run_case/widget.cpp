@@ -109,9 +109,23 @@ void Widget::returnPressedSlot()
     okBtnSlot();
 }
 
+void Widget::finishedEvent()
+{
+    qDebug() << "finished";
+    myProcess->deleteLater();
+}
+
+void Widget::errorEvent()
+{
+    qDebug() << "error";
+    myProcess->deleteLater();
+}
+
 QProcess::ProcessState Widget::StartProcess(const QString &process)
 {
-    QProcess* myProcess= new QProcess;
+    myProcess = new QProcess;
+    connect(myProcess, SIGNAL(finished(int)), this, SLOT(finishedEvent()));
+    connect(myProcess, SIGNAL(error(QProcess::ProcessError)), this, SLOT(errorEvent()));
     myProcess->start(process.trimmed());
     return myProcess->state();
 }
