@@ -1,4 +1,4 @@
-#include "widget.h"
+﻿#include "widget.h"
 #include "ui_widget.h"
 
 #include <QString>
@@ -84,7 +84,7 @@ void Widget::okBtnSlot()
     }
 
 
-    this->close();
+    //this->close();
 }
 
 void Widget::cancelBtnSlot()
