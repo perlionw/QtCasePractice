@@ -6,4 +6,5 @@ SUBDIRS += \
     calc_case \
     nodepad_case \
     screenshot_case \
-    screenshot_play_case
+    screenshot_play_case \
+    browser_case
